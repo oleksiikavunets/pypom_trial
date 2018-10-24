@@ -1,7 +1,5 @@
 from pypom import Region
 from selenium.webdriver.common.by import By
-import selenium
-from selenium.webdriver.remote.webelement import WebElement
 
 
 class TopMenu(Region):
@@ -25,7 +23,7 @@ class TopMenu(Region):
         return dict(zip(sorted(self._get_names()), self._get_sorted_els()))
 
     def get_menu_item(self, key):
-        return WebElement(self.get_items()[key])
+        return self.get_items()[key]
 
     def open_menu_item(self, key):
         self.get_items()[key].click()
@@ -46,7 +44,7 @@ class TopMenu(Region):
 
 
 class Items:
-    NP_SHOPPING = WebElement('NP Shopping')
+    NP_SHOPPING = 'NP Shopping'
     BUSINESS_CLIENTS = 'Бізнес-Клієнтам'
     PRIVATE_CLIENTS = 'Приватним Клієнтам'
     OFFICES = 'Відділення'
